@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth scroll for navigation links
     const navLinks = document.querySelectorAll('.nav-link');
     
+    // Mobile menu references
+    const hamburger = document.querySelector('.hamburger');
+    const navLinksMenu = document.querySelector('.nav-links');
+
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -24,10 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinksMenu = document.querySelector('.nav-links');
 
     hamburger.addEventListener('click', () => {
         navLinksMenu.classList.toggle('active');
@@ -352,29 +352,11 @@ document.head.appendChild(rippleStyle);
 // ===================================
 // Performance Optimization
 // ===================================
-// Lazy loading for images (if images are added later)
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    imageObserver.unobserve(img);
-                }
-            }
-        });
-    });
-
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-}
+// Performance optimizations are handled through CSS animations and
+// IntersectionObserver for scroll-triggered animations
 
 // ===================================
 // Console Welcome Message
 // ===================================
 console.log('%c👋 Hello! Welcome to my portfolio!', 'color: #667eea; font-size: 20px; font-weight: bold;');
 console.log('%cLooking for a talented web developer? Let\'s connect!', 'color: #764ba2; font-size: 14px;');
-console.log('%c📧 luke@example.com', 'color: #4a5568; font-size: 12px;');
