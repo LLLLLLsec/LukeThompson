@@ -356,7 +356,9 @@ document.head.appendChild(rippleStyle);
 // IntersectionObserver for scroll-triggered animations
 
 // ===================================
-// Console Welcome Message
+// Console Welcome Message (Development)
 // ===================================
-console.log('%c👋 Hello! Welcome to my portfolio!', 'color: #667eea; font-size: 20px; font-weight: bold;');
-console.log('%cLooking for a talented web developer? Let\'s connect!', 'color: #764ba2; font-size: 14px;');
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    console.log('%c👋 Hello! Welcome to my portfolio!', 'color: #667eea; font-size: 20px; font-weight: bold;');
+    console.log('%cLooking for a talented web developer? Let\'s connect!', 'color: #764ba2; font-size: 14px;');
+}
